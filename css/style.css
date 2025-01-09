@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1vw;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    gap: 2vw;
+    width: 90vw;
+    margin: auto auto 2vw;
+    padding: 1vw;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    padding: 1vw 2vw;
+    border: solid black 1px;
+    border-radius: 0.6vw;
+}
+
+a:hover {
+    color: black;
+}
+
+h1 {
+    font-size: 4em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    width: 80vw;
+    margin: auto;
+    align-items: center;
+}
+
+#imageArticleContainer {
+    width: 100%;
+    padding: 2vw;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2vw;
+    justify-content: center;
+
+    >article {
+        width: 18%;
+        min-height: 20vw;
+        display: flex;
+        flex-direction: column;
+        gap: 1vw;
+        border: solid black 1px;
+        border-radius: 0.6vw;
+        padding: 1vw;
+        contain: paint;
+        align-items: center;
+
+        >#userInfo {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 15%;
+
+            >.imageContainer {
+                width: 25%;
+                height: 100%;
+            }
+        }
+
+    }
+}
+
+.imageContainer {
+    object-fit: cover;
+    contain: paint;
+    border-radius: 0.6vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    >img {
+        width: 100%;
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    padding: 2vw;
+
+    >div {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3vw;
+    }
+
+    >input[type=submit] {
+        padding: 1vw;
+        font-size: 1em;
+
+        :hover {
+            cursor: pointer;
+        }
+    }
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+}
