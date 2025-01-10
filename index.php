@@ -16,6 +16,9 @@ $db = $database->connect();
 $postClass = new Post();
 $posts = $postClass->selectAll($db);
 
+//Reverse the order of the posts so we see the newest first
+$posts = array_reverse($posts);
+
 //Disconnect from the database
 $database->disconnect();
 
