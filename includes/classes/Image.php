@@ -42,7 +42,8 @@ class Image
                 $fInfo->file($uploadFile['tmp_name']),
                 [
                     'jpg' => 'image/jpeg',
-                    'png' => 'image/png'
+                    'png' => 'image/png',
+                    'gif' => 'image/gif'
                 ],
                 true
             )

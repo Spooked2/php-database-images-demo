@@ -37,12 +37,16 @@ if (isset($_POST['submit'])) {
 
     if (!empty($_FILES['image']['type'])) {
 
-        if ($_FILES['image']['type'] != 'image/png' && $_FILES['image']['type'] != 'image/jpg' && $_FILES['image']['type'] != 'image/jpeg') {
-            $errors[] = 'Foto moet van het type PNG of JPG zijn';
-        }
+        match ($_FILES['image']['type']) {
+            'image/png',
+            'image/jpg',
+            'image/jpeg',
+            'image/gif' => null,
+            default => ($errors[] = 'Image must be of type PNG, GIF or JPG')
+        };
 
         if ($_FILES['image']['size'] > 10000000) {
-            $errors[] = 'Foto bestand is te groot';
+            $errors[] = 'Image file can not be larger than 10 MB';
         }
     }
 
