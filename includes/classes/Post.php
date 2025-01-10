@@ -36,4 +36,16 @@ class Post
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function plink($db, $amount): void
+    {
+        $query = "INSERT INTO posts (user_id, title, image_path) 
+        VALUES (1, 'Plink', 'df98146ad8699dab05d34fb62ddba7524efe7dea.gif')";
+
+        $statement = $db->prepare($query);
+
+        for ($i = 0; $i < $amount; $i++) {
+            $statement->execute();
+        }
+    }
+
 }
