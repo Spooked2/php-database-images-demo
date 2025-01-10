@@ -188,7 +188,7 @@ if (isset($_POST['submit'])) {
 
     </section>
 
-    <section>
+    <section id="loginRegisterLink">
 
         <h2>Already have an account?</h2>
 

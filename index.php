@@ -14,7 +14,6 @@ $db = $database->connect();
 
 //Use the Post class to fetch all the data
 $postClass = new Post();
-
 $posts = $postClass->selectAll($db);
 
 //Disconnect from the database
@@ -62,27 +61,31 @@ $database->disconnect();
 
             <?php foreach ($posts as $post) { ?>
 
-                <article>
+                <article class="post">
 
-                    <h2><?= htmlentities($post['title']) ?></h2>
+                    <div class="postInformation">
 
-                    <div id="userInfo">
+                        <h2><?= htmlentities($post['title']) ?></h2>
 
-                        <p>Posted by <?= $post['name'] ?></p>
+                        <div class="userInfo">
 
-                        <div class="imageContainer">
+                            <p>Posted by <?= $post['name'] ?></p>
 
-                            <?php if ($post['user_image_path']) { ?>
+                            <div class="imageContainer">
 
-                                <img src="<?= UPLOAD_PATH . $post['user_image_path'] ?>"
-                                     alt="User image">
+                                <?php if ($post['user_image_path']) { ?>
 
-                            <?php } else { ?>
+                                    <img src="<?= UPLOAD_PATH . $post['user_image_path'] ?>"
+                                         alt="User image">
 
-                                <img src="<?= BASE_PATH . '/includes/images/defaultUser.jpg' ?>"
-                                     alt="User image">
+                                <?php } else { ?>
 
-                            <?php } ?>
+                                    <img src="<?= BASE_PATH . '/includes/images/defaultUser.jpg' ?>"
+                                         alt="User image">
+
+                                <?php } ?>
+
+                            </div>
 
                         </div>
 
@@ -92,18 +95,15 @@ $database->disconnect();
                         <img src="<?= UPLOAD_PATH . $post['image_path'] ?>" alt="Post image">
                     </div>
 
-
                 </article>
 
             <?php } ?>
-
 
         <?php } ?>
 
     </div>
 
 </main>
-
 
 </body>
 </html>

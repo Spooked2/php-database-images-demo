@@ -160,7 +160,7 @@ if (isset($_POST['submit'])) {
 
     </section>
 
-    <section>
+    <section id="loginRegisterLink">
 
         <h2>No account yet?</h2>
 
