@@ -51,7 +51,7 @@ if (isset($_POST['submit'])) {
 
             <div>
                 <label for="amount">Amount of plinks</label>
-                <input type="number" name="amount" id="amount" min="1" max="50" step="1">
+                <input type="number" name="amount" id="amount" min="1" max="50" step="1" value="1">
             </div>
 
             <input type="submit" id="submit" name="submit" value="plink">
