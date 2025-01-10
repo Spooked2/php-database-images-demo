@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
             $errors[] = 'Foto moet van het type PNG of JPG zijn';
         }
 
-        if ($_FILES['image']['size'] > 1000000) {
+        if ($_FILES['image']['size'] > 10000000) {
             $errors[] = 'Foto bestand is te groot';
         }
     }
