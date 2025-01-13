@@ -19,13 +19,18 @@ if (isset($_POST['submit'])) {
         $errors['title'] = 'Title can not be empty';
     }
 
-    if (empty($_FILES['image'])) {
+    //Put the image information in a separate variable for ease of use
+    $uploadedImage = $_FILES['image'];
+//        print_r($_FILES['image']);
+//        exit;
+
+    if (empty($uploadedImage)) {
         $errors['image'] = 'An image must be uploaded';
     }
 
-    if (!empty($_FILES['image']['type'])) {
+    if (!empty($uploadedImage['type'])) {
 
-        match ($_FILES['image']['type']) {
+        match ($uploadedImage['type']) {
             'image/png',
             'image/jpg',
             'image/jpeg',
@@ -33,17 +38,17 @@ if (isset($_POST['submit'])) {
             default => ($errors[] = 'Image must be of type PNG, GIF or JPG')
         };
 
-        if ($_FILES['image']['size'] > 10000000) {
+        if ($uploadedImage['size'] > 10000000) {
             $errors[] = 'Image file can not be larger than 10 MB';
         }
     }
 
     //Store the image if one was uploaded
-    if (empty($errors) && !empty($_FILES['image']['type'])) {
+    if (empty($errors) && !empty($uploadedImage['type'])) {
 
         $image = new Image();
 
-        $image_path = $image->save($_FILES['image']);
+        $image_path = $image->save($uploadedImage);
 
     }
 
