@@ -27,7 +27,8 @@ class Post
 
     public function selectAll($db): array|bool
     {
-        $query = 'SELECT posts.*, users.name, users.image_path as user_image_path FROM posts LEFT JOIN users on users.id = posts.user_id';
+        $query = 'SELECT posts.*, users.name, users.image_path as user_image_path FROM posts 
+        LEFT JOIN users on users.id = posts.user_id';
 
         $statement = $db->prepare($query);
 
