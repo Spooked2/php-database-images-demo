@@ -1,11 +1,9 @@
 <?php
+namespace classes;
 
 require_once 'includes/classes/Database.php';
 require_once 'includes/classes/User.php';
 require_once 'includes/settings.php';
-
-use classes\Database;
-use classes\User;
 
 //Check if already logged in
 if (isset($_SESSION['user'])) {

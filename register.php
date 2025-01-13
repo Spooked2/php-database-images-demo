@@ -1,13 +1,10 @@
 <?php
+namespace classes;
 
 require_once 'includes/classes/Database.php';
 require_once 'includes/classes/User.php';
 require_once 'includes/classes/Image.php';
 require_once 'includes/settings.php';
-
-use classes\Database;
-use classes\Image;
-use classes\User;
 
 //if the submit button has been clicked in the form
 if (isset($_POST['submit'])) {
@@ -56,14 +53,7 @@ if (isset($_POST['submit'])) {
 
         $image = new Image();
 
-        //Attempt to save the image
-        try {
-            $image_path = $image->save($_FILES['image']);
-        } catch (Exception $e) {
-
-            $errors['image'] = $e->getMessage();
-
-        }
+        $image_path = $image->save($_FILES['image']);
 
     }
 

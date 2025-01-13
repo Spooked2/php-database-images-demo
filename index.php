@@ -1,11 +1,9 @@
 <?php
+namespace classes;
 
 require_once 'includes/classes/Database.php';
 require_once 'includes/classes/Post.php';
 require_once 'includes/settings.php';
-
-use classes\Database;
-use classes\Post;
 
 //Get all the posts from the database
 //Connect to the database

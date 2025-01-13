@@ -1,13 +1,10 @@
 <?php
+namespace classes;
 
 require_once 'includes/classes/Database.php';
 require_once 'includes/classes/Post.php';
 require_once 'includes/classes/Image.php';
 require_once 'includes/settings.php';
-
-use classes\Database;
-use classes\Post;
-use classes\Image;
 
 if (!isset($_SESSION['user'])) {
     header('location: ' . BASE_PATH . '/login.php');
@@ -46,14 +43,7 @@ if (isset($_POST['submit'])) {
 
         $image = new Image();
 
-        //Attempt to save the image
-        try {
-            $image_path = $image->save($_FILES['image']);
-        } catch (Exception $e) {
-
-            $errors['image'] = $e->getMessage();
-
-        }
+        $image_path = $image->save($_FILES['image']);
 
     }
 
